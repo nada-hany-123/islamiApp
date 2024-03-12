@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/tabs/settings/Settings.dart';
+import 'package:new_app/tabs/Quran/quran.dart';
 //import 'package:google_fonts/google_fonts.dart';
-import 'package:new_app/tabs/quran/quran_tap.dart';
-import 'package:new_app/tabs/setting/setting_tab.dart';
 import 'tabs/sebha/sebha.dart';
 import 'tabs/hadeth/hadeth.dart';
 import 'tabs/radio/radio.dart';
@@ -14,11 +14,13 @@ static const String routeName = 'home';
 
 class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
-    QuranTab(),
-    HadethTap(),
-    SebhaTab(),
-    RadioTab(),
     SettingTab(),
+    RadioTab(),
+    SebhaTab(),
+    HadethTap(),
+    QuranTab(),
+
+
   ];
   int selectedIndex = 0;
   @override
@@ -45,25 +47,27 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
           items: const [
-            BottomNavigationBarItem(icon:ImageIcon(
-              AssetImage('assets/images/moshaf_gold.png'),),
-              label: 'Quran',
+
+            BottomNavigationBarItem(icon:Icon(Icons.settings_outlined),
+              label: 'الإعدادات',
             ),
             BottomNavigationBarItem(icon:ImageIcon(
-              AssetImage('assets/images/quran-quran-svgrepo-com.png'),),
-              label: 'Hadeth',
+              AssetImage('assets/images/radio.png'),),
+              label: 'الراديو',
             ),
             BottomNavigationBarItem(icon:ImageIcon(
               AssetImage('assets/images/sebha.png'),),
-              label: 'Sebha',
+              label: 'سبحه',
             ),
             BottomNavigationBarItem(icon:ImageIcon(
-            AssetImage('assets/images/radio.png'),),
-          label: 'Radio',
-          ),
-            BottomNavigationBarItem(icon:Icon(Icons.settings_outlined),
-              label: 'Settings',
+              AssetImage('assets/images/quran-quran-svgrepo-com.png'),),
+              label: 'الحديث',
             ),
+            BottomNavigationBarItem(icon:ImageIcon(
+              AssetImage('assets/images/moshaf_gold.png'),),
+              label: 'القرآن',
+            ),
+
            ],
         ),
       ),

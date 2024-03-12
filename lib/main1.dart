@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:new_app/tabs/Quran/sure_details.dart';
 import 'home_screen.dart';
 import 'theme.dart';
+
 
 void main(){
   runApp(IslamiApp());
@@ -13,6 +15,7 @@ class IslamiApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         HomeScreen.routeName: (_) => HomeScreen(),
+        SureDetailsScreen.routeName:(_)=>SureDetailsScreen (),
       },
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
