@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:new_app/theme.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/loading.dart';
+import '../settings/setting_provider.dart';
 
 class SureDetailsScreen extends StatefulWidget {
   static const String routeName = 'sure_details';
@@ -29,7 +31,7 @@ class _SureDetailsScreenState extends State<SureDetailsScreen> {
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/bg3.png'),
+            image: AssetImage('assets/images/${Provider.of<SettingsProvider>(context).backgroundimagePath}.png'),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,7 +44,9 @@ class _SureDetailsScreenState extends State<SureDetailsScreen> {
           LoadingIndicator() :
           Container(
             decoration: BoxDecoration(
-                color: AppTheme.white,
+                color: Theme
+                    .of(context)
+                    .primaryColor,
                 borderRadius:
             BorderRadius.all(Radius.circular(25)
             )

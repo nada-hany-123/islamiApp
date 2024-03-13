@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_app/tabs/Quran/sure_details.dart';
 
+import '../../theme.dart';
 class QuranTab  extends StatelessWidget {
   List<String> suraName = ["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
   ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
@@ -16,10 +17,14 @@ class QuranTab  extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      // crossAxisAlignment: CrossAxisAlignment,
       children: [
          Image.asset('assets/images/Screenshot (1).png'),
         SizedBox(height: 16,),
+
+        Divider(height: 5,thickness:3,color: AppTheme.gold,),
+        Text('اسم السورة',style: Theme.of(context).textTheme.titleLarge,)
+         ,
+        Divider(height: 5,thickness:3,color: AppTheme.gold,),
         Expanded(
           child: ListView.separated(
             itemBuilder: (context,index) =>

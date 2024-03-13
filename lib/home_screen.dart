@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:new_app/tabs/settings/Settings.dart';
 import 'package:new_app/tabs/Quran/quran.dart';
+import 'package:new_app/tabs/settings/setting_provider.dart';
+import 'package:provider/provider.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'tabs/sebha/sebha.dart';
 import 'tabs/hadeth/hadeth.dart';
@@ -16,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> tabs = [
     SettingTab(),
     RadioTab(),
-    SebhaTab(),
+    Tasbeeh(),
     HadethTap(),
     QuranTab(),
 
@@ -28,7 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/bg3.png'),
+          image: AssetImage('assets/images/${Provider.of<SettingsProvider>(context).backgroundimagePath}.png'),
           fit: BoxFit.cover,
         )
       ),
@@ -38,7 +40,9 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         body: tabs[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Color(0xFFB7935F),
+          backgroundColor: Theme
+            .of(context)
+            .primaryColor,
           type: BottomNavigationBarType.fixed,
           currentIndex:selectedIndex ,
           onTap: (index){
